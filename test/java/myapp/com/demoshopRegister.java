@@ -1,24 +1,13 @@
 package myapp.com;
 import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.testng.Assert;
-
 import org.testng.annotations.AfterTest;
-
 import org.testng.annotations.BeforeTest;
-
 import org.testng.annotations.Parameters;
-
 import org.testng.annotations.Test;
-
-
-
 
 public class demoshopRegister {
 	public String baseUrl = "http://demowebshop.tricentis.com";
@@ -39,7 +28,7 @@ public class demoshopRegister {
 	   driver.manage().window().maximize();
 	  }
  
- @Test(priority=3)
+ @Test(priority=8)
  public void clickRegLink() {
 	
 	 driver.findElement(By.linkText("Register")).click();
@@ -47,7 +36,7 @@ public class demoshopRegister {
 	 System.out.println("Clicking on Register Hyperlink is Successful"); 
  }
  
- @Test(priority=4)
+ @Test(priority=9)
  @Parameters ({"fname", "lname", "email", "pwd"})
  public void userRegistration(String fname, String lname, String email, String pwd ) {
 	
@@ -63,7 +52,7 @@ public class demoshopRegister {
 	driver.findElement(By.linkText("Log out")).click();
  }
  
- @Test(priority=5)
+ @Test(priority=10)
  @Parameters({"email"})
  public void missingPwd(String email) {
 	 driver.findElement(By.linkText("Log in")).click();
@@ -74,7 +63,7 @@ public class demoshopRegister {
 	  
  }
  
- @Test(priority=6)
+ @Test(priority=11)
  @Parameters({"pwd"})
  public void missingEmail(String pwd) {
 	 driver.findElement(By.linkText("Log in")).click();
@@ -83,7 +72,7 @@ public class demoshopRegister {
 	 Assert.assertEquals(driver.findElement(By.className("validation-summary-errors")).getText(), "Login was unsuccessful. Please correct the errors and try again.\n"+"No customer account found");
  }
  
- @Test(priority=7)
+ @Test(priority=12)
  @Parameters({"email", "pwd"})
  public void validateNewUser(String email, String pwd) {
 	 driver.findElement(By.linkText("Log in")).click();
